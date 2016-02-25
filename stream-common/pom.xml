@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.mmtrix.jstorm</groupId>
+		<artifactId>stream-stat-jstorm</artifactId>
+		<version>0.0.1</version>
+	</parent>
+	
+	<artifactId>stream-common</artifactId>
+	<version>0.0.1</version>
+	<name>stream-common</name>
+	<url>http://maven.apache.org</url>
+	
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<build>
+		<testResources>
+			<testResource>
+				<directory>src/test/resources</directory>
+			</testResource>
+		</testResources>
+		<resources>
+			<resource>
+				<directory>src/main/resource</directory>
+			</resource>
+			<resource>
+				<directory>src/main/conf/${envcfg.dir}</directory>
+			</resource>
+		</resources>
+	</build>
+	
+	<dependencies>
+	</dependencies>
+
+	<profiles>
+		<profile>
+			<id>base</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<envcfg.dir>dev</envcfg.dir>
+			</properties>
+		</profile>
+		<profile>
+			<id>test</id>
+			<properties>
+				<envcfg.dir>test</envcfg.dir>
+			</properties>
+		</profile>
+		<profile>
+			<id>product</id>
+			<properties>
+				<envcfg.dir>product</envcfg.dir>
+			</properties>
+		</profile>
+	</profiles>
+</project>
